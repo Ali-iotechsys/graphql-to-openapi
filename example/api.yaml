@@ -1,0 +1,268 @@
+info:
+  license:
+    name: Not specified
+  title: Not specified
+  version: Not specified
+openapi: 3.0.3
+paths:
+  /AssociateUserToGroup:
+    get:
+      parameters:
+        - in: query
+          name: userID
+          required: true
+          schema:
+            type: string
+        - in: query
+          name: groupID
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                properties:
+                  AssociateUserToGroup:
+                    nullable: false
+                    properties:
+                      ID:
+                        nullable: false
+                        type: string
+                      Users:
+                        items:
+                          properties:
+                            ID:
+                              nullable: false
+                              type: string
+                          type: object
+                        nullable: true
+                        type: array
+                    type: object
+                type: object
+          description: response
+  /CreateGroup:
+    get:
+      parameters:
+        - in: query
+          name: label
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                properties:
+                  CreateGroup:
+                    nullable: false
+                    properties:
+                      ID:
+                        nullable: false
+                        type: string
+                    type: object
+                type: object
+          description: response
+  /CreateUser:
+    get:
+      parameters:
+        - in: query
+          name: name
+          required: true
+          schema:
+            type: string
+        - in: query
+          name: address
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                properties:
+                  CreateUser:
+                    nullable: false
+                    properties:
+                      ID:
+                        nullable: false
+                        type: string
+                    type: object
+                type: object
+          description: response
+  /GetAllGroups:
+    get:
+      parameters: []
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                properties:
+                  Groups:
+                    items:
+                      properties:
+                        ID:
+                          nullable: false
+                          type: string
+                        Label:
+                          nullable: false
+                          type: string
+                        Users:
+                          items:
+                            properties:
+                              ID:
+                                nullable: false
+                                type: string
+                              Name:
+                                nullable: false
+                                type: string
+                            type: object
+                          nullable: true
+                          type: array
+                      type: object
+                    nullable: true
+                    type: array
+                type: object
+          description: response
+  /GetAllUsers:
+    get:
+      parameters: []
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                properties:
+                  Users:
+                    items:
+                      properties:
+                        Address:
+                          nullable: false
+                          type: string
+                        ID:
+                          nullable: false
+                          type: string
+                        Name:
+                          nullable: false
+                          type: string
+                      type: object
+                    nullable: true
+                    type: array
+                type: object
+          description: response
+  /GetGroup:
+    get:
+      parameters:
+        - in: query
+          name: input
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                properties:
+                  Groups:
+                    items:
+                      properties:
+                        ID:
+                          nullable: false
+                          type: string
+                        Label:
+                          nullable: false
+                          type: string
+                        Users:
+                          items:
+                            properties:
+                              ID:
+                                nullable: false
+                                type: string
+                              Name:
+                                nullable: false
+                                type: string
+                            type: object
+                          nullable: true
+                          type: array
+                      type: object
+                    nullable: true
+                    type: array
+                type: object
+          description: response
+  /GetUser:
+    get:
+      parameters:
+        - in: query
+          name: input
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                properties:
+                  Users:
+                    items:
+                      properties:
+                        Address:
+                          nullable: false
+                          type: string
+                        ID:
+                          nullable: false
+                          type: string
+                        Name:
+                          nullable: false
+                          type: string
+                      type: object
+                    nullable: true
+                    type: array
+                type: object
+          description: response
+  /UpdateUser:
+    get:
+      parameters:
+        - in: query
+          name: userID
+          required: true
+          schema:
+            type: string
+        - in: query
+          name: name
+          required: true
+          schema:
+            type: string
+        - in: query
+          name: address
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                properties:
+                  UpdateUser:
+                    nullable: false
+                    properties:
+                      Address:
+                        nullable: false
+                        type: string
+                      ID:
+                        nullable: false
+                        type: string
+                      Name:
+                        nullable: false
+                        type: string
+                    type: object
+                type: object
+          description: response
+servers:
+  - url: /
