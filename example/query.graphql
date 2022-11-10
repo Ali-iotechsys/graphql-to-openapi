@@ -1,0 +1,66 @@
+query GetAllUsers {
+    Users {
+        ID
+        Name
+        Address
+    }
+}
+
+query GetUser ($input: ID!) {
+    Users (userIDs: [$input]){
+        ID
+        Name
+        Address
+    }
+}
+
+query GetAllGroups {
+    Groups {
+        ID
+        Label
+        Users {
+            ID
+            Name
+        }
+    }
+}
+
+query GetGroup ($input: ID!) {
+    Groups (groupIDs: [$input]){
+        ID
+        Label
+        Users {
+            ID
+            Name
+        }
+    }
+}
+
+mutation CreateUser ($name: String!, $address: String!) {
+    CreateUser(input: {Name: $name, Address: $address}) {
+        ID
+    }
+}
+
+mutation CreateGroup ($label: String!) {
+    CreateGroup(input: {Label: $label}) {
+        ID
+    }
+}
+
+mutation AssociateUserToGroup ($userID: ID!, $groupID: ID!) {
+    AssociateUserToGroup(input: {UserID: $userID, GroupID: $groupID}) {
+        ID
+        Users {
+            ID
+        }
+    }
+}
+
+mutation UpdateUser ($userID: ID!, $name: String!, $address: String!) {
+    UpdateUser(input: {UserID: $userID, NewName: $name, NewAddress: $address}) {
+        ID
+        Name
+        Address
+    }
+}
