@@ -235,12 +235,12 @@ paths:
             type: string
         - in: query
           name: name
-          required: true
+          required: false
           schema:
             type: string
         - in: query
           name: address
-          required: true
+          required: false
           schema:
             type: string
       responses:

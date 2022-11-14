@@ -57,7 +57,7 @@ mutation AssociateUserToGroup ($userID: ID!, $groupID: ID!) {
     }
 }
 
-mutation UpdateUser ($userID: ID!, $name: String!, $address: String!) {
+mutation UpdateUser ($userID: ID!, $name: String, $address: String) {
     UpdateUser(input: {UserID: $userID, NewName: $name, NewAddress: $address}) {
         ID
         Name
